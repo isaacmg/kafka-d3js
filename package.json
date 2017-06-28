@@ -4,7 +4,9 @@
   "description": "Chart based Kafka connection",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "kafka-node": "^1.6.2",
+    "socket.io": "^2.0.3"
   },
   "devDependencies": {},
   "scripts": {
