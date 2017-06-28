@@ -1,0 +1,22 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    const socket = io.connect(window.location.host);
+    socket.on('connected', function (data) {
+        console.log(data);
+        socket.emit('subscribe', {'username':'tegioz', 'rooms':['pruebas']});
+        socket.emit('newMessage', {'room':'pruebas', 'msg':'Holaaaaaa'});
+    });
+    socket.on('chat message', function (data) {
+        console.log(data)
+        const dat2 = "<p>" + data['value'] + "</p>"
+        $( ".inner" ).append( dat2);
+
+    });
+</script>
+<h2>Greetings</h2>
+<div class="container">
+  <div class="inner">Hello</div>
+  <div class="inner">Goodbye</div>
+</div>

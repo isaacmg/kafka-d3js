@@ -1,5 +1,5 @@
 const app = require('express')();
-
+const express = require('express')
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 function callSockets(io, message){
@@ -13,7 +13,7 @@ app.get('/ren', function(req, res){
   res.sendFile(__dirname + '/rendering.html');
 });
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/ibn.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 
@@ -34,10 +34,7 @@ const kafka = require('kafka-node'),
         client,
         [
             { topic: 'test' }
-        ],
-        {
-            groupId: 'my-group'
-        }
+        ]
     );
 consumer.on('message', function (message) {
     callSockets(io,message)
