@@ -9,11 +9,14 @@ function callSockets(io, message){
 app.get('/chart', function(req, res){
   res.sendFile(__dirname + '/d3js.html');
 });
-app.get('/ren', function(req, res){
-  res.sendFile(__dirname + '/rendering.html');
+app.get('/bar', function(req, res){
+  res.sendFile(__dirname + '/bar.html');
 });
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
+});
+app.get('/bar2', function(req, res){
+  res.sendFile(__dirname + '/new.html');
 });
 
 

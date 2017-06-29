@@ -19,9 +19,16 @@
 
 
 	<script>
+	var settings = {
+	  margin:margin, width:width, height:height, categoryIndent:categoryIndent,
+	  svg:svg, x:x, y:y
+	}
+	return settings;
+}
+	const socket = io.connect(window.location.host);
 	socket.on('chat message', function (data) {
-		
-			pullData(data['value'])
+
+			pullData(data['value'],settings)
 
 	});
 
@@ -51,12 +58,7 @@ var setup = function(targetID){
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	//Package and export settings
-	var settings = {
-	  margin:margin, width:width, height:height, categoryIndent:categoryIndent,
-	  svg:svg, x:x, y:y
-	}
-	return settings;
-}
+
 
 var redrawChart = function(targetID, newdata) {
 
